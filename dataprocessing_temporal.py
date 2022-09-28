@@ -70,6 +70,18 @@ if __name__ == '__main__':
     graph_file_open.close()
 
 
+    new_node_attr_file = open("./movielens-1m-temporal/node_attr.txt", 'r')
+    sub_node_attr_file = open("./movielens-1m-temporal/node_attr_sub.txt", 'w')
+    for line in new_node_attr_file.readlines():
+        items = line.strip().split(',')
+        node = int(items[0])
+        attr = int(items[1])
+        if is_in_subgraph(node):
+            sub_node_attr_file.write(str(match_from_whole_to_sub(node)) + ',' + str(attr) + '\n')
+    new_node_attr_file.close()
+    sub_node_attr_file.close()
+
+
     all_possible_timestamp_list = []
     for item in all_possible_timestamp_set:
         all_possible_timestamp_list.append(item)
