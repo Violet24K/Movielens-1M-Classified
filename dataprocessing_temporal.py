@@ -134,3 +134,8 @@ if __name__ == '__main__':
     temporal_edge_file_sub.close()
     temporal_edge_file_initial.close()
     temporal_edge_file_initial_sub.close()
+
+    ground_truth_file = open("./movielens-1m-temporal/ground_truth.txt", 'w')
+    for i in range(NUM_NODES_SUB):
+        ground_truth_file.write(str(match_from_sub_to_whole(i)) + ',' + str(i) + '\n')
+    ground_truth_file.close()

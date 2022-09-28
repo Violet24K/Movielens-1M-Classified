@@ -85,4 +85,4 @@ if __name__ == '__main__':
     ground_truth_file = open("./movielens-1m/ground_truth.txt", 'w')
     for i in range(NUM_NODES_SUB):
         ground_truth_file.write(str(match_from_sub_to_whole(i)) + ',' + str(i) + '\n')
-
+    ground_truth_file.close()
